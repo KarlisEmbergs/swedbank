@@ -1,0 +1,274 @@
+@font-face {
+    src: url("font/SwedbankHeadline-Bold.otf");
+    font-family: swedbank;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    height: 30%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 20px;
+    color: #696969;
+    background-color: #FBF2EA;
+    margin: 70px;
+}
+
+.info {
+    display: inline-block;
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+    background-image: url(img/info-light.png);
+    background-size: cover;
+    background-position: center;
+    vertical-align: middle;
+    position: relative;
+}
+
+.info:hover {
+    background-image: url(img/info-dark.png);
+
+}
+
+.info::before,
+.info::after {
+    --scale: 0;
+    position: absolute;
+    top: -.25rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%) scale(var(--scale));
+    transition: 150ms transform;
+    transform-origin: bottom;
+}
+
+.info::before {
+    content: attr(data-tooltip);
+    padding: .5rem;
+    border-radius: .3rem;
+    text-align: center;
+    width: max-content;
+    width: 800%;
+    background-color: #EBE7E2;
+}
+
+.info:hover::before {
+    --scale: 1;
+}
+
+.error {
+    color: #C5121B;
+}
+
+em {
+    color: #C5121B;
+}
+
+h1,
+h2 {
+    color: #512B2B;
+    font-family: swedbank;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    font-size: 32px;
+    line-height: 48px;
+    color: #FB4F00;
+}
+
+h2 {
+    font-size: 36px;
+    line-height: 32px;
+}
+
+form {
+    background-color: #F9F8F6;
+}
+
+.container {
+    padding: 20px 20px 0px 20px;
+}
+
+#summary {
+    background-color: #F9F8F6;
+}
+
+.hidden {
+    display: none;
+}
+
+input,
+textarea {
+    line-height: 18px;
+    border: 1px solid #BCD8DB;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-size: 15px;
+    padding: 13px 10px 13px 10px;
+    border-radius: 3px;
+    margin: 5px 0px;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type="number"] {
+    min-width: 100px;
+
+}
+
+.checkbox {
+    width: 28px;
+    height: 28px;
+    appearance: none;
+
+}
+
+.checkbox:hover,
+.checkbox:checked:hover {
+    background-color: #FDC927;
+    border-color: #FDC927;
+    transition: background-color 0.3 ease-out;
+    cursor: pointer;
+}
+
+.checkbox:checked {
+    background-color: #FB4F00;
+    border-color: #FB4F00;
+    transition: background-color 0.3 ease-out;
+}
+
+.label {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.grid {
+    display: grid;
+}
+
+li {
+    list-style: none;
+}
+
+p {
+    margin: 10px 0px;
+}
+
+label {
+    margin-right: 10px;
+    text-align: right;
+}
+
+select {
+    line-height: 18px;
+    border: 1px solid #BCD8DB;
+    box-sizing: border-box;
+    background-color: #ECF9F3;
+    color: #512B2B;
+    font-size: 15px;
+    padding: 13px 10px 13px 10px;
+    border-radius: 3px;
+}
+
+.btnMain {
+    background-color: #ff5f00;
+    border: 1px solid #ff5f00;
+}
+
+.btnContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    background-color: #F9F8F6;
+}
+
+#prevBtn {
+    background-color: #31a3ae;
+    border: 1px solid #31a3ae;
+}
+
+#prevBtn:hover {
+    background-color: #257886;
+    transition: color 0.3 ease-out;
+    cursor: pointer;
+}
+
+.btn {
+    color: #fff;
+    padding: 13px 15px;
+    font-size: 18px;
+    line-height: 18px;
+    border-radius: 3px;
+    font-family: 'Roboto', sans-serif;
+    margin: 5px;
+}
+
+.btn:hover {
+    background-color: #FB4F00;
+    transition: color 0.3 ease-out;
+    cursor: pointer;
+}
+
+/* Some CSS to make the experience more suitable for mobile devices. */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+        line-height: 24px;
+        margin: 20px;
+    }
+
+    .logo {
+        width: 50%;
+        height: 50%;
+    }
+
+    h1 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    h2 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    input {
+        width: 40%;
+    }
+
+
+    .label {
+        text-align: left;
+    }
+
+    .radioContainer {
+        display: flex;
+        align-items: left;
+    }
+
+    .radio {
+        padding: 0px;
+        width: 15px;
+        margin-right: 5px;
+    }
+
+    .info::before,
+    .info::after {
+        top: -5rem;
+        left: -600%;
+        transform: scale(var(--scale));
+        transition: 150ms transform;
+        transform-origin: bottom;
+    }
+}

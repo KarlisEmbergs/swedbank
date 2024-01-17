@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <title>Small Loan | Swedbank</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css">
+
+</head>
+
+<body>
+    <header class="container">
+        <img class="logo" src="img/swedbank-logo.svg" alt="swedbank logo">
+        <h1>Small loan</h1>
+        <h2>For the small and big dreams in your life</h2>
+        <p>Thank you for you interest in applying for a small loan. Please answer our 2-minute survey below regarding
+            your loan requirements.</p>
+    </header>
+
+    <div id="survey">
+        <form action="/thanks" method="post" id="form">
+            <div class="container" id="q1">
+                <h2>Contact details</h2>
+                <p>Please enter your full name below.</p>
+                <label class="label" for="fullName">Full name<em>*</em></label>
+                <input type="text" name="fullName" id="fullName" placeholder="Full name" required>
+                <div class="info" data-tooltip="Enter your full legal name."></div>
+                <p class="hidden" id="errorMsgQ1">Please enter your full legal name!</p>
+            </div>
+
+            <div class="container hidden" id="q2">
+                <h2>Loan amount</h2>
+                <p>Please select the required loan amount.</p>
+                <label class="label" for="loanAmount">Loan amount<em>*</em></label>
+                <input type="number" name="loanAmount" id="loanAmount" pattern="[0-9]*" min="300" max="20000"
+                    value="300" step="50" required>
+                <label class="label" for="loanAmount">€</label>
+                <div class="info" data-tooltip="Enter the amount of the required loan between €300 and €20000">
+                </div>
+                <p class="hidden" id="errorMsgQ2">Please enter the desired loan amount value between €300 and €20000
+                </p>
+
+            </div>
+
+            <div class="container hidden" id="q3">
+                <h2>Loan term</h2>
+                <p>Please select the term for the loan.</p>
+                <!-- Drop-down -->
+                <label class="label" for="loanTerm">Loan term<em>*</em></label>
+                <select name="loanTerm" id="loanTerm" required>
+                    <option value="6 months">6 months</option>
+                    <option value="1 year">1 year</option>
+                    <option value="2 years">2 years</option>
+                    <option value="3 years">3 years</option>
+                    <option value="4 years">4 years</option>
+                    <option value="5 years">5 years</option>
+                </select>
+                <div class="info" data-tooltip="Select a suitable term for this loan."></div>
+
+            </div>
+
+            <div class="container hidden" id="q4">
+                <h2>Loan reason</h2>
+                <!-- Text-area -->
+                <p><label class="label" for="loanReason">Please state the reason(s) of this short term
+                        loan<em>*</em></label></p>
+                <textarea name="loanReason" id="loanReason" cols="30" rows="1" placeholder="Loan reason"
+                    required></textarea>
+                <div class="info"
+                    data-tooltip="Describe the reason for this loan with at least 3 characters, but no more than 2000.">
+                </div>
+                <p class="hidden" id="errorMsgQ4">Please state the reason(s) of your loan using more than 3 and less
+                    than
+                    2000 characters.</p>
+            </div>
+
+            <div class="container hidden" id="q5">
+                <!-- Radio -->
+                <h2>Loan commitments</h2>
+                <p>Do you have any loan commitments outside Swedbank?<em>*</em></p>
+                <div class="radioContainer">
+                    <input class="radio" type="radio" name="loanCommit" id="loanCommitYes" value="yes" required>
+                    <label class="label" for="loanCommitYes">Yes</label>
+                    <input class="radio" type="radio" name="loanCommit" id="loanCommitNo" value="no" required>
+                    <label class="label" for="loanCommitNo">No</label>
+                    <div class="info" data-tooltip="Select whether you currently have other loan commitments"></div>
+                </div>
+                <p class="hidden" id="errorMsgQ5">Please select one of the options to indicate your current loan
+                    commitment status.</p>
+            </div>
+
+            <div class="container hidden" id="q6">
+                <h2>Terms and Conditions</h2>
+                <p>Please read and agree the terms and conditions.</p>
+                <!-- Checkbox -->
+                <label class="label" for="toc">By ticking this box I agree to the terms and conditions of
+                    this small loan.<em>*</em></label>
+                <input class="checkbox" type="checkbox" name="toc" id="toc" required>
+                <div class="info" data-tooltip="Tick this box to agree to the terms and conditions."></div>
+                <p class="hidden" id="errorMsgQ6">Please agree to the terms and conditions.</p>
+            </div>
+
+            <div class="btnContainer">
+                <button class="btnMain btn hidden" id="prevBtn">Previous</button>
+                <button class="btnMain btn" id="conBtn">Continue</button>
+                <input class="btnMain btn hidden" id="submit" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+    <div id="summary" class="container hidden">
+        <h2>Thank you!</h2>
+
+        <ul>
+            <li id="listFullname"></li>
+            <li id="listLoanAmount"></li>
+            <li id="listLoanTerm"></li>
+            <li id="listLoanReason"></li>
+            <li id="listLoanCommitment"></li>
+        </ul>
+        <div class="btnContainer">
+            <button class="btnMain btn" id="reset">Reset</button>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
